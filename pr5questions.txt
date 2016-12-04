@@ -5,7 +5,7 @@
 
 (2) How did implement the page table, physical memory, and TLB?
 
-    Page table - <fill in>
+    Page table - page table is instantiated as a vector of pages.
 
     Physical memory - created physical address structure that includes full
     address, frame number, and offset. The physical memory itself is a vector
@@ -13,7 +13,8 @@
     in a struct. This effectively makes the vector an array of unique references
     to chunks of memory.
 
-    TLB - a structure that contains a vector of page frame numbers
+    TLB - a structure that contains a vector of TLB row objects. These TLB row
+    objects include page number, frame number, and age.
 
 (3) Does your program realistically and accurately simulate a virtual memory
     system?
