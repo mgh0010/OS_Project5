@@ -1,3 +1,7 @@
+#ifndef output_h
+#define output_h
+
+
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -7,7 +11,7 @@ int proto_output() {
   //each output "block" is followed by a file write "block" that will look
   //identical to what pops up in the user's terminal upon execution
 
-  ofstream output;
+  std::ofstream output;
   output.open("vm_sim_output");
 
 
@@ -110,3 +114,5 @@ int proto_output() {
 
 
 }
+
+#endif
