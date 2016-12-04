@@ -76,4 +76,10 @@
 
 (3) Did you document all outside sources?
 
-    Yes; few were used, but where they are implemented they are credited.
+    Yes; A few were used, but where they are implemented they are credited.
+
+
+
+
+//DO NOT FORGET TO MOVE THESE QUESTIONS INTO THE MAIN README AND RENAME THE README
+TO SOMETHING MORE RELEVANT TO SUBMISSION REQUIREMENTS BEFORE SUBMISSION
