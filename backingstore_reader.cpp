@@ -18,7 +18,7 @@ typedef unsigned char byte;
 //get value and bytes from
 void getfrombs(page_t page_num, unsigned char &ret_value, frame_t &ret_frame_num)
 {
-    const char backingstore[] = "/home/michael/ClionProjects/OS_Project5/BACKING_STORE";
+    const char backingstore[] = "BACKING_STORE";
     byte value = 0;
 
     FILE *file;
@@ -43,7 +43,6 @@ void getfrombs(page_t page_num, unsigned char &ret_value, frame_t &ret_frame_num
         /* SEEK_SET: reference position is the beginning of file */
         fseek(file, seek_position, SEEK_SET);
         fgetpos(file, &pos);
-        printf("Reading from position: %d.\n", pos);
 
         /* Read and print data from backingstore */
 
