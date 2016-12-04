@@ -188,4 +188,12 @@ Further Discussion:
 
 	Unfinished Work:
 
-		//answer (if there is any)
+		//only fill this in if parts of the project are not done;
+		//otherwise, delete this section
+
+	Encountered Problems:
+
+		Our group had a bit of trouble reading from backingstore. It was very
+		confusing to us how we were supposed to get the value from the simulated
+		hard drive. We could get the address fine, but figuring out how to and where
+		to apply that address ended up being a puzzle.

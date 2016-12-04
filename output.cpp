@@ -54,6 +54,8 @@ int proto_output() {
             << "" /* tlb hit rate var */
             << std::endl;
 
+
+  //EVERYTHING EXCEPT THIS LAST LINE NEEDS TO BE STREAMED TO THE OUTPUT FILE
   std::cout << std::endl
             << "Check the results in the outputfile: vm_som_output"
             << std::endl;
