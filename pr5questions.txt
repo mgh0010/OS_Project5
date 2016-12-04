@@ -21,7 +21,10 @@
 
 (5) When a TLB miss occurs, how do you decide which entry to replace?
 
-    <need an answer here>
+    The user will be able to select one of two methods to do this (both which
+    are implemented): a first in first out system, where the first entry in
+    would be the first to be replaced, or a least recently used system, where
+    the entry being replaced will be the entry that was used the longest ago.
 
 
 
