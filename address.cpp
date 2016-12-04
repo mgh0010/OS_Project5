@@ -26,31 +26,6 @@ void setupphysicaladdress(phys_addr_t * pa, frame_t frame_num, unsigned int offs
 }
 
 
-/* This method determines the physical address from the given logical address
- * Reference:
- *      This method was heavily inspired by the genius Xiao Qin himself */
-phys_addr_t getaddressinfo (log_addr_t la)
-{
-
-    frame_t frame_num;
-    phys_addr_t pa;
-
-
-#ifdef DEBUG
-    printf("logical address: %s\n", itob(la));
-#endif
-    printf("logical address: %s\n", itob16(la.full_addr));
-
-    printf("page number: %s\n", itob8(la.page_num));
-
-    printf("offset: %s\n", itob8(la.offset));
-
-    printf("Unit Testing: Now create physical address ...\n");
-
-    frame_num = la.page_num;
-
-    return pa;
-}
 
 /*
  * convert machine number to human-readable binary string.
