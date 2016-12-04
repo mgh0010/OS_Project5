@@ -5,6 +5,12 @@ Michael Harrison
 Robert Mullins
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Running Simulator:
+
+	run: make
+	run: ./runsim testinput.txt
+
+
 Introduction:
 
 	For this project we will design and implement a standalone virtual memory manager
