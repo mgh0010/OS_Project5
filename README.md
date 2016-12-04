@@ -72,6 +72,9 @@ Design:
 Project Report Questions:
 	
 	Solution Description:
+
+		//You must describe your solutions with good sample input and output to 
+		//show users what your memory manager is doing (REMOVE THIS BEFORE SUBMIT)
 		
 		1) How did you guarantee that each logical address is translated to the
 		   correct physical address?
