@@ -9,6 +9,9 @@
 #define PHYSICAL_MEM_SIZE 256
 #define PAGE_TABLE_SIZE 256
 
+int num_tlb_faults = 0; // Counter for num of tlb faults
+int num_page_faults = 0;    // Counter for num of page faults
+
 int main() {
     // Make TLB
     TLB * tlb = new TLB();
@@ -29,6 +32,8 @@ int main() {
             log_addr_t * la = new log_addr_t();
             la->full_addr = (unsigned int) std::stoul(line);
             setuplogicaladdress(la);
+            // check if page num is in TLB, else inc TLB fault count
+            
              int a = 4;
         }
     }
