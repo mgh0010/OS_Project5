@@ -103,9 +103,9 @@ Project Report Questions:
 		1) How did you guarantee that each logical address is translated to the
 		   correct physical address?
 
-				We use an algorithm that utilizes bit shifting and bit masking
-				in a way that always results in the proper logical to physical
-				address conversion. This solution is demonstrated in address.cpp
+			We use an algorithm that utilizes bit shifting and bit masking
+			in a way that always results in the proper logical to physical
+			address conversion. This solution is demonstrated in address.cpp
 
 		2) How did you implement the page table, physical memory, and TLB?
 
@@ -123,8 +123,8 @@ Project Report Questions:
 		3) Does your program realistically and accurately simulate a virtual memory
 		   system?
 
-			 Absolutely. The code is designed to be as true to a virtual memory system
-			 as possible for us to achieve.
+			Absolutely. The code is designed to be as true to a virtual memory system
+			as possible for us to achieve.
 
 		4) Did you use the Java operators for bit-masking and bit-shifting?
 
@@ -143,7 +143,7 @@ Project Report Questions:
 
 		1) How general is your solution?
 
-			Our code is very general; we made our structures and functions with
+		  Our code is very general; we made our structures and functions with
 			reusability in mind.
 
 		2) How easy would it be to change parameters such as the size of the TLB?
@@ -155,16 +155,16 @@ Project Report Questions:
 		3) Does your program only load pages from the backing store when they are
 		   needed?
 
-			 Yes, the only time our program is designed to access backing_store is when
-			 it is absolutely necessary. Theoretically there are no redundant or
-			 unnecessary writes to or reads from backing_store based on our testing.
+			Yes, the only time our program is designed to access backing_store is when
+			it is absolutely necessary. Theoretically there are no redundant or
+			unnecessary writes to or reads from backing_store based on our testing.
 
 
 		4) Does your solution allow the physical address space to be smaller than
 		   the virtual address space?
 
-				Yes; number of bits needed to address something in physical memory
-				is not required to be as large as the virtual address.
+			Yes; number of bits needed to address something in physical memory
+			is not required to be as large as the virtual address.
 
 	Miscellaneous Factors:
 
