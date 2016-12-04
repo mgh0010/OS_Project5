@@ -5,6 +5,7 @@
 #include <string>
 #include <fstream>
 #include "TLB.h"
+#include "backingstore_reader.h"
 
 
 int num_tlb_faults = 0; // Counter for num of tlb faults
@@ -75,6 +76,8 @@ int main() {
 
             phys_addr_t * pa = new phys_addr_t();
 
+            unsigned char value;
+
             // check if page num is in TLB, else inc TLB fault count
             frame_t frame_num = getframefromtlb(la, tlb);
             if(frame_num == NULL)
@@ -88,10 +91,15 @@ int main() {
                     // page not in page table
                     ++num_page_faults;
                     // load into mem for backing store
+                    getfrombs(la->page_num, value, frame_num);
                     // update page table
                     updatepagetable(page_table, frame_num);
                     // update tlb
                     updatetlb(tlb, frame_num);
+                    if(LRU)
+                    {
+                        resetage(tlb, frame_num);
+                    }
                 }
                 else
                 {

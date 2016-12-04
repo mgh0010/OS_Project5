@@ -6,18 +6,20 @@
 #include <string>
 #include <iostream>
 #include <stdio.h>
+#include "address.h"
+#include "backingstore_reader.h"
 
+#include <sstream>
 
-using namespace std;
-
-//#define DEBUG
 
 /* There is no byte data type in C */
 typedef unsigned char byte;
 
-int get_from_bs ( int argc, char *argv[] )
+//get value and bytes from
+void getfrombs(page_t page_num, unsigned char &ret_value, frame_t &ret_frame_num)
 {
-    const char backingstore[] = "BACKING_STORE";
+    const char backingstore[] = "/home/michael/ClionProjects/OS_Project5/BACKING_STORE";
+    byte value = 0;
 
     FILE *file;
     int i;
@@ -26,24 +28,8 @@ int get_from_bs ( int argc, char *argv[] )
     int num_bytes_read;
     byte one_byte;
 
-    /* argc should be 3 for correct execution */
-    if ( argc != 3 )
-    {
-        /* We print argv[0] assuming it is the program name */
-        cout << "usage: " << argv[0] << ", <seek position>, <number of bytes to read>\n";
-        return 0;
-    }
-
-    /*
-     * Convert strings into seek_position and num_bytes_read
-     * We assume argv[1] is seek_position and argv[2] is num_bytes_read
-     */
-    seek_position = stoi(argv[1]);
-    num_bytes_read = stoi(argv[2]);
-
-#ifdef DEBUG
-    printf("seek_position =%d, num_bytes_read =%d\n", seek_position, num_bytes_read);
-#endif
+    seek_position = page_num;
+    num_bytes_read = 256;
 
     file = fopen(backingstore, "r" );
 
@@ -60,19 +46,15 @@ int get_from_bs ( int argc, char *argv[] )
         printf("Reading from position: %d.\n", pos);
 
         /* Read and print data from backingstore */
-        for (i = 0; i < num_bytes_read; i++)
+
+        fread(&value, 1, 1, file);
+        ret_frame_num += value;
+        for (i = 1; i < num_bytes_read; i++)
         {
            fread(&one_byte, 1, 1, file);
-           /* printf prints one byte as hex */
-           printf("0x%x, %d", one_byte, one_byte);
-           /*
-            * Note: If one_byte's data type is int,
-            * then we have to use a bit mask: one_byte&0xFF
-            */
+            ret_frame_num += one_byte;
         }
-        printf("\n");
 
         fclose( file );
     }
-    return 0;
 }

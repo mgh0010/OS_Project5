@@ -46,7 +46,6 @@ void setuplogicaladdress(log_addr_t * la);
 
 void setupphysicaladdress(phys_addr_t * pa, frame_t frame_num, unsigned int offset);
 
-phys_addr_t getaddressinfo(log_addr_t la);
 
 /*
  * In C there is no binary format in printf
