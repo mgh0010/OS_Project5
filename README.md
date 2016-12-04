@@ -1,8 +1,8 @@
 COMP3500 Project 5 Report
 
-Jason Stephens
-Michael Harrison
-Jake Mullins
+Jason Stephens -
+Michael Harrison -
+Jake Mullins -
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Introduction:
@@ -52,28 +52,6 @@ Design:
 
 	Handling Page Faults:
 
-		Question about TLB and Page Fault: //~~~THIS IS OPTIONAL, REMOVE IF NO ANSWERS~~~~~~~
-
-			Assuming that a user program just tried to access a piece of data at address
-			X, describe the conditions under which each of the following can arise. If
-			the situation is impossible, answer "impossible" and explain why:
-
-				1) TLB miss, page fault
-
-					//answer
-
-				2) TLB miss, no page fault
-
-					//answer
-
-				3) TLB hit, page fault
-
-					//answer
-
-				4) TLB hit, no page fault
-
-					//answer
-
 		When a page fault occurs our program will perform the following four steps:
 
 			1) Read a 256-byte page from BACKING_STORE
@@ -86,13 +64,40 @@ Design:
 
 	Data Structures:
 
-			// Address structure				
+			Address structure:			
+				typedef struct logical_address_struct
+				{
+					unsigned int full_addr;
+					page_t page_num;
+					offset_t offset;
+				}log_addr_t;
 
-			// TLB structure (section 6.3)
+				typedef struct physical_address_struct
+				{
+					unsigned int full_addr;
+					frame_t fram_num;
+					offset_t offset;
+				}phys_addr_t;
 
-			// Page table structure (section 6.2)
+			TLB structure:
+				typedef struct TLB_row_struct
+				{
+				    page_t page_num;
+				    frame_t frame_num;
+				    int age;
+				}TLB_row;
 
-			// Physical memory structure
+				typedef struct TLB_struct
+				{
+				    std::vector<TLB_row> rows;
+
+				}TLB;
+
+			Page table structure:
+				std::vector<page_t> page_table(PAGE_TABLE_SIZE);
+
+			Physical memory structure:
+				std::vector<frame_t> physical_mem(PHYSICAL_MEM_SIZE);
 
 Project Report Questions:
 
@@ -104,11 +109,13 @@ Project Report Questions:
 		1) How did you guarantee that each logical address is translated to the
 		   correct physical address?
 
-				//answer
+				We use an algorithm that utilizes bit shifting and bit masking
+				in a way that always results in the proper logical to physical
+				address conversion. This solution is demonstrated in address.cpp
 
 		2) How did you implement the page table, physical memory, and TLB?
 
-			Page table - page table is instantiated as a vector of pages.
+			Page table - instantiated as a vector of pages.
 
 			Physical memory - created physical address structure that includes full
 			address, frame number, and offset. The physical memory itself is a vector
@@ -162,7 +169,8 @@ Project Report Questions:
 		4) Does your solution allow the physical address space to be smaller than
 		   the virtual address space?
 
-				//answer
+				Yes; number of bits needed to address something in physical memory
+				is not required to be as large as the virtual address.
 
 	Miscellaneous Factors:
 
