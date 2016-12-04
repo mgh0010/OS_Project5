@@ -59,8 +59,8 @@ Design:
 			3) Update the page table
 			4) Update the TLB
 
-	Accessing Backing_Store: //Talk about this one if you have a good answer, otherwise
-							 //leave it out (REMOVE IF EMPTY)
+		Accessing Backing_Store: //Talk about this one if you have a good answer, otherwise
+							     //leave it out (REMOVE IF EMPTY)
 
 	Data Structures:
 
