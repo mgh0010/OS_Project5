@@ -33,8 +33,11 @@ int main() {
             la->full_addr = (unsigned int) std::stoul(line);
             setuplogicaladdress(la);
             // check if page num is in TLB, else inc TLB fault count
-            
-             int a = 4;
+            if(pagenotintlb(la, tlb))
+            {
+                ++num_tlb_faults;
+            }
+            int a = 4;
         }
     }
     else

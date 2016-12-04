@@ -11,13 +11,21 @@
 
 #define TLB_LENGTH 16
 
+typedef struct TLB_row_struct
+{
+    page_t page_num;
+    frame_t frame_num;
+    int age;
+}TLB_row;
+
 typedef struct TLB_struct
 {
-    std::vector<std::vector<unsigned int>> page_frame_nums;
+    std::vector<TLB_row> rows;
 
 }TLB;
 
-void setuptlb(TLB_struct * tlb);
+void setuptlb(TLB * tlb);
+bool pagenotintlb(log_addr_t * la, TLB * tlb);
 
 
 #endif //OS_PROJECT5_TLB_H
