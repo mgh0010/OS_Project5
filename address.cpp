@@ -16,6 +16,16 @@ void setuplogicaladdress(log_addr_t * la)
 }
 
 
+void setupphysicaladdress(phys_addr_t * pa, frame_t frame_num, unsigned int offset)
+{
+    pa->full_addr = frame_num << OFFSET_BITS | offset;
+    // offsets should be the same
+    pa->offset = offset;
+
+    printf("frame number:%d, offset: %d, physical address: %d\n", frame_num, offset, pa->full_addr);
+}
+
+
 /* This method determines the physical address from the given logical address
  * Reference:
  *      This method was heavily inspired by the genius Xiao Qin himself */
@@ -38,11 +48,6 @@ phys_addr_t getaddressinfo (log_addr_t la)
     printf("Unit Testing: Now create physical address ...\n");
 
     frame_num = la.page_num;
-    pa.full_addr = frame_num << OFFSET_BITS | la.offset;
-    // offsets should be the same
-    pa.offset = la.offset;
-
-    printf("frame number:%d, offset: %d, physical address: %d\n", frame_num, la.offset, pa.full_addr);
 
     return pa;
 }

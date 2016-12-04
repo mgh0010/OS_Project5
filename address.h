@@ -13,6 +13,12 @@
 /* mask is used to extract the offset from a logical address */
 #define OFFSET_MASK 0xFF
 
+/* mem size is used to for the size of the physical memory */
+#define PHYSICAL_MEM_SIZE 256
+
+/* page table size is used to for the size of the page table size */
+#define PAGE_TABLE_SIZE 256
+
 /* Using this because there is no byte data type in C */
 typedef unsigned char byte;
 
@@ -37,6 +43,8 @@ typedef struct physical_address_struct
 
 
 void setuplogicaladdress(log_addr_t * la);
+
+void setupphysicaladdress(phys_addr_t * pa, frame_t frame_num, unsigned int offset);
 
 phys_addr_t getaddressinfo(log_addr_t la);
 

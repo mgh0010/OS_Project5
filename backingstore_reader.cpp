@@ -15,7 +15,8 @@ using namespace std;
 /* There is no byte data type in C */
 typedef unsigned char byte;
 
-int get_from_bs ( int argc, char *argv[] ) {
+int get_from_bs ( int argc, char *argv[] )
+{
     const char backingstore[] = "BACKING_STORE";
 
     FILE *file;
@@ -26,7 +27,8 @@ int get_from_bs ( int argc, char *argv[] ) {
     byte one_byte;
 
     /* argc should be 3 for correct execution */
-    if ( argc != 3 ) {
+    if ( argc != 3 )
+    {
         /* We print argv[0] assuming it is the program name */
         cout << "usage: " << argv[0] << ", <seek position>, <number of bytes to read>\n";
         return 0;
@@ -46,17 +48,20 @@ int get_from_bs ( int argc, char *argv[] ) {
     file = fopen(backingstore, "r" );
 
     /* fopen returns 0, the NULL pointer, on failure */
-    if ( file == 0 ) {
+    if ( file == 0 )
+    {
          printf( "Could not open file: %s.\n", backingstore);
     }
-    else {
+    else
+    {
         /* SEEK_SET: reference position is the beginning of file */
         fseek(file, seek_position, SEEK_SET);
         fgetpos(file, &pos);
         printf("Reading from position: %d.\n", pos);
 
         /* Read and print data from backingstore */
-        for (i = 0; i < num_bytes_read; i++) {
+        for (i = 0; i < num_bytes_read; i++)
+        {
            fread(&one_byte, 1, 1, file);
            /* printf prints one byte as hex */
            printf("0x%x, %d", one_byte, one_byte);

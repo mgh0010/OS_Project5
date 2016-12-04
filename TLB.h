@@ -25,7 +25,12 @@ typedef struct TLB_struct
 }TLB;
 
 void setuptlb(TLB * tlb);
-bool pagenotintlb(log_addr_t * la, TLB * tlb);
+
+frame_t getframefromtlb(log_addr_t *la, TLB *tlb);
+
+frame_t getframefrompagetable(log_addr_t *la, std::vector<page_t> page_table);
+
+void resetage(TLB * tlb, frame_t frame_num);
 
 
 #endif //OS_PROJECT5_TLB_H
