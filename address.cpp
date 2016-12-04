@@ -4,8 +4,9 @@
 
 #include "address.h"
 
-#ifndef ADDRESS_H
-#define ADDRESS_H
+#include <stdio.h>
+#include <limits.h>
+
 
 /* This method determines the physical address from the given logical address
  * Reference:
@@ -16,15 +17,15 @@ int getaddressinfo (log_addr_t logical_address) {
     frame_t    frame_num;
     phys_addr_t physical_address;
 
-    page_num = logical_address >> OFFSET_BITS;
-    offset = logical_address & OFFSET_MASK;
+    page_num = logical_address.full_addr >> OFFSET_BITS;
+    offset = logical_address.full_addr & OFFSET_MASK;
 
-    printf("logical address: %d, page number: %d, offset: %d\n", logical_address, page_num, offset);
+    printf("logical address: %d, page number: %d, offset: %d\n", logical_address.full_addr, page_num, offset);
 
 #ifdef DEBUG
     printf("logical address: %s\n", itob(logical_address));
 #endif
-    printf("logical address: %s\n", itob16(logical_address));
+    printf("logical address: %s\n", itob16(logical_address.full_addr));
 
     printf("page number: %s\n", itob8(page_num));
 
@@ -33,9 +34,9 @@ int getaddressinfo (log_addr_t logical_address) {
     printf("Unit Testing: Now create physical address ...\n");
 
     frame_num = page_num;
-    physical_address = frame_num << OFFSET_BITS | offset;
+    physical_address.full_addr = frame_num << OFFSET_BITS | offset;
 
-    printf("frame number:%d, offset: %d, physical address: %d\n", frame_num, offset, physical_address);
+    printf("frame number:%d, offset: %d, physical address: %d\n", frame_num, offset, physical_address.full_addr);
 
     return 0;
 }
@@ -108,5 +109,3 @@ char *itob8(int x)
     }
     return buff;
 }
-
-#endif

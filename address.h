@@ -5,9 +5,6 @@
 #ifndef OS_PROJECT5_ADDRESS_H
 #define OS_PROJECT5_ADDRESS_H
 
-#include <stdio.h>
-#include <limits.h>
-#include "address.h"
 //#define DEBUG
 
 /* offset is used to address the location within a page */
@@ -23,8 +20,20 @@ typedef unsigned char byte;
 typedef unsigned int page_t;
 typedef unsigned int frame_t;
 typedef unsigned int offset_t;
-typedef unsigned int log_addr_t;
-typedef unsigned int phys_addr_t;
+
+typedef struct logical_address_struct
+{
+    unsigned int full_addr;
+    page_t page_num;
+    offset_t offset;
+}log_addr_t;
+
+typedef struct physical_address_struct
+{
+    unsigned int full_addr;
+    frame_t fram_num;
+    offset_t offset;
+}phys_addr_t;
 
 
 int getaddressinfo (log_addr_t logical_address);
