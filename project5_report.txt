@@ -143,7 +143,7 @@ Project Report Questions:
 
 		1) How general is your solution?
 
-		  Our code is very general; we made our structures and functions with
+		  	Our code is very general; we made our structures and functions with
 			reusability in mind.
 
 		2) How easy would it be to change parameters such as the size of the TLB?
