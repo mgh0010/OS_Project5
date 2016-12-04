@@ -7,20 +7,24 @@
 #include <stdio.h>
 #include <limits.h>
 
+void setuplogicaladdress(log_addr_t * la)
+{
+    la->page_num = la->full_addr >> OFFSET_BITS;
+    la->offset = la->full_addr & OFFSET_MASK;
+
+    printf("logical address: %d, page number: %d, offset: %d\n", la->full_addr, la->page_num, la->offset);
+}
+
 
 /* This method determines the physical address from the given logical address
  * Reference:
  *      This method was heavily inspired by the genius Xiao Qin himself */
-phys_addr_t getaddressinfo (log_addr_t la) {
-    page_t     page_num;
-    offset_t   offset;
-    frame_t    frame_num;
+phys_addr_t getaddressinfo (log_addr_t la)
+{
+
+    frame_t frame_num;
     phys_addr_t pa;
 
-    la.page_num = la.full_addr >> OFFSET_BITS;
-    la.offset = la.full_addr & OFFSET_MASK;
-
-    printf("logical address: %d, page number: %d, offset: %d\n", la.full_addr, la.page_num, la.offset);
 
 #ifdef DEBUG
     printf("logical address: %s\n", itob(la));

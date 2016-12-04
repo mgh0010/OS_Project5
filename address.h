@@ -36,6 +36,8 @@ typedef struct physical_address_struct
 }phys_addr_t;
 
 
+void setuplogicaladdress(log_addr_t * la);
+
 phys_addr_t getaddressinfo(log_addr_t la);
 
 /*

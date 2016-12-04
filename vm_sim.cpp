@@ -20,7 +20,20 @@ int main() {
 
     std::string line;
     //std::ifstream file ("./" + filename);
-    std::ifstream file ("/home/michael/ClionProjects/OS_Project5/testinput.txt");
+    std::ifstream file ("/home/michael/ClionProjects/OS_Project5/InputFile.txt");
 
     if(file.is_open())
+    {
+        while(getline(file, line))
+        {
+            log_addr_t * la = new log_addr_t();
+            la->full_addr = (unsigned int) std::stoul(line);
+            setuplogicaladdress(la);
+             int a = 4;
+        }
+    }
+    else
+    {
+        printf("Could not Open the file \n");
+    }
 }
