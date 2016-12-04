@@ -49,16 +49,6 @@ Design:
 				- The frame number is obtained from the page table if the page has been
 				  loaded into main memory
 				- Otherwise, a page fault occurs
-		
-		Data Structures:
-
-			// Address structure				
-
-			// TLB structure (section 6.3)
-
-			// Page table structure (section 6.2)
-
-			// Physical memory structure
 
 	Handling Page Faults:
 
@@ -68,6 +58,16 @@ Design:
 			2) Store the loaded page frame in the physical memory
 			3) Update the page table
 			4) Update the TLB
+
+	Data Structures:
+
+			// Address structure				
+
+			// TLB structure (section 6.3)
+
+			// Page table structure (section 6.2)
+
+			// Physical memory structure
 
 Project Report Questions:
 	
