@@ -188,8 +188,8 @@ Further Discussion:
 
 	Unfinished Work:
 
-		//only fill this in if parts of the project are not done;
-		//otherwise, delete this section
+		We were unable to make the last two output values (Page fault rate and
+		tlb fault rate) populate with accurate data.
 
 	Encountered Problems:
 
@@ -197,6 +197,9 @@ Further Discussion:
 		confusing to us how we were supposed to get the value from the simulated
 		hard drive. We could get the address fine, but figuring out how to and where
 		to apply that address ended up being a puzzle.
+
+		We also had trouble calculating page fault rate and tlb fault rate, and we
+		ran out of time when wrapping up that last portion.
 
 		A handful of other portions took a significant amount of time, but weren't
 		really troublesome to understand or implement.
