@@ -2,7 +2,7 @@ COMP3500 Project 5 Report
 
 Jason Stephens
 Michael Harrison
-Jake Mullins
+Robert Mullins
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Introduction:
@@ -193,7 +193,10 @@ Further Discussion:
 
 	Encountered Problems:
 
-		Our group had a bit of trouble reading from backingstore. It was very
+		Our group had a bit of trouble reading from backing store. It was very
 		confusing to us how we were supposed to get the value from the simulated
 		hard drive. We could get the address fine, but figuring out how to and where
 		to apply that address ended up being a puzzle.
+
+		A handful of other portions took a significant amount of time, but weren't
+		really troublesome to understand or implement.
