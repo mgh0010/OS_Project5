@@ -52,6 +52,28 @@ Design:
 
 	Handling Page Faults:
 
+		Question about TLB and Page Fault: //~~~THIS IS OPTIONAL, REMOVE IF NO ANSWERS~~~~~~~
+	
+			Assuming that a user program just tried to access a piece of data at address
+			X, describe the conditions under which each of the following can arise. If
+			the situation is impossible, answer "impossible" and explain why:
+
+				1) TLB miss, page fault
+
+					//answer
+
+				2) TLB miss, no page fault
+
+					//answer
+
+				3) TLB hit, page fault
+
+					//answer
+
+				4) TLB hit, no page fault
+
+					//answer
+
 		When a page fault occurs our program will perform the following four steps:
 			
 			1) Read a 256-byte page from BACKING_STORE 
