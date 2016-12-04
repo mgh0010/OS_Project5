@@ -11,8 +11,8 @@ void setuptlb(TLB * tlb)
     {
         TLB_row * tlb_row =  new TLB_row();
         tlb_row->age = 0;
-        tlb_row->page_num = NULL;
-        tlb_row-> frame_num = NULL;
+        tlb_row->page_num = 0;
+        tlb_row-> frame_num = 0;
         tlb->rows.push_back(*tlb_row);
     }
 }
@@ -26,7 +26,7 @@ frame_t getframefromtlb(log_addr_t *la, TLB *tlb)
             return tlb->rows[i].frame_num;
         }
     }
-    return NULL;
+    return 0;
 }
 
 frame_t getframefrompagetable(log_addr_t *la, std::vector<page_t> page_table)
@@ -39,7 +39,7 @@ frame_t getframefrompagetable(log_addr_t *la, std::vector<page_t> page_table)
         }
     }
 
-    return NULL;
+    return 0;
 }
 
 void resetage(TLB * tlb, frame_t frame_num)

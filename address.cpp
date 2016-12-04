@@ -12,7 +12,6 @@ void setuplogicaladdress(log_addr_t * la)
     la->page_num = la->full_addr >> OFFSET_BITS;
     la->offset = la->full_addr & OFFSET_MASK;
 
-    printf("logical address: %d, page number: %d, offset: %d\n", la->full_addr, la->page_num, la->offset);
 }
 
 
@@ -22,7 +21,6 @@ void setupphysicaladdress(phys_addr_t * pa, frame_t frame_num, unsigned int offs
     // offsets should be the same
     pa->offset = offset;
 
-    printf("frame number:%d, offset: %d, physical address: %d\n", frame_num, offset, pa->full_addr);
 }
 
 
