@@ -11,34 +11,36 @@
 /* This method determines the physical address from the given logical address
  * Reference:
  *      This method was heavily inspired by the genius Xiao Qin himself */
-int getaddressinfo (log_addr_t logical_address) {
+phys_addr_t getaddressinfo (log_addr_t la) {
     page_t     page_num;
     offset_t   offset;
     frame_t    frame_num;
-    phys_addr_t physical_address;
+    phys_addr_t pa;
 
-    page_num = logical_address.full_addr >> OFFSET_BITS;
-    offset = logical_address.full_addr & OFFSET_MASK;
+    la.page_num = la.full_addr >> OFFSET_BITS;
+    la.offset = la.full_addr & OFFSET_MASK;
 
-    printf("logical address: %d, page number: %d, offset: %d\n", logical_address.full_addr, page_num, offset);
+    printf("logical address: %d, page number: %d, offset: %d\n", la.full_addr, la.page_num, la.offset);
 
 #ifdef DEBUG
-    printf("logical address: %s\n", itob(logical_address));
+    printf("logical address: %s\n", itob(la));
 #endif
-    printf("logical address: %s\n", itob16(logical_address.full_addr));
+    printf("logical address: %s\n", itob16(la.full_addr));
 
-    printf("page number: %s\n", itob8(page_num));
+    printf("page number: %s\n", itob8(la.page_num));
 
-    printf("offset: %s\n", itob8(offset));
+    printf("offset: %s\n", itob8(la.offset));
 
     printf("Unit Testing: Now create physical address ...\n");
 
-    frame_num = page_num;
-    physical_address.full_addr = frame_num << OFFSET_BITS | offset;
+    frame_num = la.page_num;
+    pa.full_addr = frame_num << OFFSET_BITS | la.offset;
+    // offsets should be the same
+    pa.offset = la.offset;
 
-    printf("frame number:%d, offset: %d, physical address: %d\n", frame_num, offset, physical_address.full_addr);
+    printf("frame number:%d, offset: %d, physical address: %d\n", frame_num, la.offset, pa.full_addr);
 
-    return 0;
+    return pa;
 }
 
 /*

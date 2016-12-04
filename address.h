@@ -36,7 +36,7 @@ typedef struct physical_address_struct
 }phys_addr_t;
 
 
-int getaddressinfo (log_addr_t logical_address);
+phys_addr_t getaddressinfo(log_addr_t la);
 
 /*
  * In C there is no binary format in printf
